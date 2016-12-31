@@ -1,5 +1,8 @@
+
+
 import { Patient } from './patient'
 
+//---------------mock----------------
 export const PATIENTS :Patient[] = [
   {id:1 , fullname:'Jan Kowalski' , pulse: 120 , bloodOxygenation: 99 , accelerometer: 150},
   {id:2 , fullname:'Piotr Nowak' , pulse: 150 , bloodOxygenation: 59 , accelerometer: 110},

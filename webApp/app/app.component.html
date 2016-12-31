@@ -1,24 +1,9 @@
-<div class="container">
-  <h1>{{title}}</h1>
 
-  <div class="cont1">
-    <h2>Patients list:</h2>
-    <ul style="list-style-type: none">
-      <li *ngFor="let patient of patients">
-        <button (click)="select(patient);">
-          <span>{{patient.fullname}}</span>
-        </button>
-      </li>
-    </ul>
-  </div>
+    <nav>
+     
+      <a routerLink="/temp1" routerLinkActive="active">doktor</a>
+      <a routerLink="/temp2" routerLinkActive="active">pacjent</a>
+    </nav>
+    <router-outlet></router-outlet>
 
-  <hr/>
-  <div class="cont2">
-    <div align="left" style="float: left">
-      <patient-detail [patient]="selected"></patient-detail>
-    </div>
-    <div align="right" style="float: right" id="patientPanelClose" (click)="select();"><span
-      style="font-size: 40pt; color: #990308">X</span></div>
-  </div>
-
-</div>
+ 

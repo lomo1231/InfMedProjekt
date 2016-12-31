@@ -1,40 +1,13 @@
-import { Component , OnInit  } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { Patient } from './patient'
 
-import { PatientService } from './patient.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'my-app',
-  templateUrl: 'app/app.component.html',
-  providers: [PatientService]
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css'],
 })
-
-
-
-
-export class AppComponent implements OnInit  {
-
-  title = 'Zarządzanie stanem pacjentów';
-  patients : Patient[];
-  selected :Patient;
-
-  select(patient :Patient){
-    this.selected = patient;
-    console.log('select!')
-  }
-
-  constructor(private patientService: PatientService) { }
-  getData(): void {
-    this.patientService.getPatients().then(patients => this.patients = patients);
-    console.log('constructor!')
-
-  }
-
-  ngOnInit(): void {
-    this.getData();
-    console.log('ngOnInit!')
-  }
-
+export class AppComponent {
+  public singleModel:string = '1';
 }
-

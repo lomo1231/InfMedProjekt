@@ -1,24 +1,34 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
-import { AppComponent }  from './app.component';
+import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard.component';
+import { Temp1Component } from './temp1.component';
+import { Temp2Component } from './temp2.component';
+import { DataService } from './data.service';
 
-//-------[teachin app.module how to use herodetail component]----
-import { PatientDetailComponent } from './patient-detail.component';
-
-
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  imports:      [ 
-                  BrowserModule , 
-                  FormsModule,//<--- declaration --
-                ], 
-  declarations: [ 
-                  AppComponent , 
-                  PatientDetailComponent //<--- declaration ---
-                ],
+  
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+   ],
 
-  bootstrap:    [ AppComponent ]
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    Temp1Component,
+    Temp2Component
+  ],
+
+  providers: [DataService],
+
+  bootstrap: [AppComponent]
+
 })
+
 export class AppModule { }

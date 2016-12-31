@@ -1,7 +1,8 @@
-export class Patient {
-     id: number; 
-     fullname: String;
-     pulse: number;
-     bloodOxygenation: number;
-     accelerometer: number;
-    }
+export class Patient 
+{
+    id: number;
+    fullname: string;
+    pulse: number;
+    bloodOxygenation: number;
+    accelerometer: number;
+}
