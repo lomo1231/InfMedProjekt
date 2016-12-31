@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
-import { PATIENTS } from './patient-list'
-import { Patient } from './patient'
+import { PATIENTS } from '../patient_model/patient-list'
+import { Patient } from '../patient_model/patient'
 
 @Injectable()
 export class DataService {

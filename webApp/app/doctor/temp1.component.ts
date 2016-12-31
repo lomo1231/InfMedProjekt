@@ -10,9 +10,9 @@ import { Component, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 
-import { DataService }  from './data.service';
+import { DataService }  from '../data_service/data.service';
 
-import {Patient} from './patient'
+import {Patient} from '../patient_model/patient'
 
 @Component({
 

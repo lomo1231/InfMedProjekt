@@ -1,9 +1,9 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent }   from './dashboard.component';
-import { Temp2Component }      from './temp2.component';
-import { Temp1Component }  from './temp1.component';
+import { DashboardComponent }   from '../dashboard/dashboard.component';
+import { Temp2Component }      from '../patient/temp2.component';
+import { Temp1Component }  from '../doctor/temp1.component';
 
 const routes: Routes = [
   { path: '',  component: DashboardComponent },

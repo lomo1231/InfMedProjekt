@@ -21,12 +21,16 @@
 
 
         <div class="patient-detail" *ngIf="selected">
-            <div>
+          <div align="right" style="float: right" id="patientPanelClose" (click)="select();">
+            <button type="button" class="btn btn-default" data-toggle="tooltip" title="Close">
+              <span style="font-size: 14pt; color: #990308">X</span>
+            </button>
+          </div>
 
+          <div>
 
-                <h3>Name: {{selected.fullname}}</h3>
-                <ul class="details">
-                    <li><span>id: {{selected.id}}</span></li>
+              <h3>Name: {{selected.fullname}}</h3>
+              <ul class="details">
                     <li><span>pulse: {{selected.pulse}}</span></li>
                     <li><span>bloodOxygenation: {{selected.bloodOxygenation}}</span></li>
                     <li><span>accelerometer: {{selected.accelerometer}}</span></li>
@@ -34,8 +38,6 @@
             </div>
 
 
-            <div align="right" style="float: right" id="patientPanelClose" (click)="select();"><span style="font-size: 10pt; color: #990308">X</span>
-            </div>
         </div>
         <div class = "footer"></div>
     </div>
