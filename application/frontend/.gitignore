@@ -3,6 +3,8 @@
 # compiled output
 /dist
 /tmp
+*.js
+*.map
 
 # dependencies
 /node_modules

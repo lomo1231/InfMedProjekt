@@ -22,34 +22,6 @@ dist/
 nbdist/
 .nb-gradle/
 
-### Frontend ###
-
-# compiled output
-/frontend/dist
-/frontend/tmp
-
-# dependencies
-/frontend/node_modules
-/frontend/bower_components
-
-# misc
-/frontend/.sass-cache
-/frontend/connect.lock
-/frontend/coverage/*
-/frontend/libpeerconnection.log
-/frontend/npm-debug.log
-/frontend/testem.log
-/frontend/typings
-
-# e2e
-/frontend/e2e/*.js
-/frontend/e2e/*.map
-
-#System Files
-/frontend/.DS_Store
-/frontend/Thumbs.db
-/frontend/.vscode
-
 /.mvn
 /mvnw
 /mvnw.cmd
