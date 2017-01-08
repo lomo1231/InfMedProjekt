@@ -13,9 +13,9 @@ import { PatientService } from './patient.service';
 
 
 
-export class AppComponent implements OnInit  { 
-  
-  title = 'chwytliwy tytul aplikacji'; 
+export class AppComponent implements OnInit  {
+
+  title = 'Zarządzanie stanem pacjentów';
   patients : Patient[];
   selected :Patient;
 
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit  {
   getData(): void {
     this.patientService.getPatients().then(patients => this.patients = patients);
     console.log('constructor!')
-    
+
   }
 
   ngOnInit(): void {

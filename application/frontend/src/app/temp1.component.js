@@ -15,7 +15,7 @@ require('rxjs/add/operator/switchMap');
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
-var data_service_1 = require('./data.service');
+var data_service_1 = require('../data_service/data.service');
 var Temp1Component = (function () {
     function Temp1Component(dataService, route, location) {
         this.dataService = dataService;
