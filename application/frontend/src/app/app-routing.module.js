@@ -13,10 +13,12 @@ var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard.component');
 var temp2_component_1 = require('./patient.component.ts');
 var temp1_component_1 = require('./temp1.component');
+var login_component = require('./authentication/login.component');
 var routes = [
     { path: '', component: dashboard_component_1.DashboardComponent },
     { path: 'temp1', component: temp1_component_1.Temp1Component },
-    { path: 'temp2', component: temp2_component_1.PatientComponent }
+    { path: 'temp2', component: temp2_component_1.PatientComponent },
+    {path: 'login', component: login_component.LoginComponent}
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

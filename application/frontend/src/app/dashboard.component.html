@@ -2,10 +2,10 @@
 
 <div class = "row">
   <div class="form">
-    <form class="login-form">
-      <input type="text" placeholder="Nazwa użytkownika"/>
-      <input type="password" placeholder="Hasło"/>
-      <button>zaloguj</button>
+    <form class="login-form" id="loginForm">
+      <input type="text" name="username" [(ngModel)]="model.username" placeholder="Nazwa użytkownika"/>
+      <input type="password" name="password" [(ngModel)]="model.password" placeholder="Hasło"/>
+      <button (click)="onLoginClick()">zaloguj</button>
       <p class="message">W celu utworzenia konta skontaktuj się z  <a href="#">Administratorem</a></p>
     </form>
   </div>

@@ -20,7 +20,7 @@ export class PatientComponent implements OnInit {
   heartbeat: Heartbeat;
 
   constructor(
-    private router: Router,) { }
+    private router: Router) { }
 
   ngOnInit() {
     console.log("onInit");
