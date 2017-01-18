@@ -10,27 +10,23 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.pulse.R;
 import com.pulse.dialogs.FallDetectedDialog;
+import com.pulse.services.DataSender;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, FallDetectedDialog.FallDialogListener {
 
     private float old_y;
     private long lastUpdate;
     private static final int FALL_SPEED = 15;
-//    private float highest_Speed = 0;
-//    private List<Float> speedHistory;
 
     private SensorManager sensorManager;
     private Sensor sensorAccelerometer;
-
-//    private Handler dialogTimeHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         lastUpdate = System.currentTimeMillis();
 
-//        speedHistory = new ArrayList<>();
+        DataSender.getInstance().run();
     }
 
     @Override
@@ -63,17 +59,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         FragmentManager fm = getFragmentManager();
         final DialogFragment fallDialog = new FallDetectedDialog();
         fallDialog.show(fm, "FallDialog");
-
-//        dialogTimeHandler = new Handler();
-//        dialogTimeHandler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                fallDialog.dismiss();
-//
-//                Intent intent = new Intent(MainActivity.this, AfterFallActivity.class);
-//                MainActivity.this.startActivity(intent);
-//            }
-//        }, 10000);
     }
 
     @Override
@@ -97,44 +82,41 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void timeFinished(DialogFragment dialog) {
         dialog.dismiss();
 
-        Intent intent = new Intent(MainActivity.this, AfterFallActivity.class);
-        MainActivity.this.startActivity(intent);
+        DataSender.getInstance().fallDetected();
+        LinearLayout alarmLayout = (LinearLayout) findViewById(R.id.alertLayout);
+        alarmLayout.setVisibility(LinearLayout.VISIBLE);
+    }
+
+    public void cancelFallAlarm(View view) {
+        sensorManager.registerListener(this, sensorAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+
+        LinearLayout alarmLayout = (LinearLayout) findViewById(R.id.alertLayout);
+        alarmLayout.setVisibility(LinearLayout.INVISIBLE);
+
+        System.out.println("Alarm canceled");
+
+        DataSender.getInstance().cancelFallAlarm("temp");
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
 
         if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+
             float y = event.values[1];
 
             long curTime = System.currentTimeMillis();
 
-//            System.out.println("CurTime: " + String.valueOf(curTime));
-//            System.out.println("LastUpdate: " + String.valueOf(lastUpdate));
-
             if((curTime - lastUpdate) > 500) {
                 long diffTime = curTime - lastUpdate;
                 lastUpdate = curTime;
-                //upewnic sie co do wzoru obliczania
+
                 float speed = Math.abs(y - old_y)/diffTime*1000;
 
-//                System.out.println("Old y: " + String.valueOf(old_y) + "| y: " + String.valueOf(y));
-//                System.out.println("Speed: " + String.valueOf(speed));
-
-                //poprawic FALL_SPEED - moze w ustawieniach menu opcja edycji?
                 if(speed > FALL_SPEED && y < old_y) {
                     //fall detected
                     this.possibleFallDetected();
-
-//                    speedHistory.add(speed);
-//                    System.out.println("Leci w dol!!!");
                 }
-
-//                if(y < old_y) {
-//                    txtView.setText(String.valueOf(highest_Speed));
-//                    if (speed > highest_Speed)
-//                        highest_Speed = speed;
-//                }
                 old_y = y;
             }
         }
