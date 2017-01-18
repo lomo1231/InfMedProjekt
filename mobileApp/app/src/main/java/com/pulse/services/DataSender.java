@@ -13,7 +13,7 @@ public class DataSender implements Runnable {
 
     private Pulse pulseStorage;
     private Handler handler;
-    private int interval = 1000;
+    private long interval = 1000;
     private POST poster;
 
     @Override
@@ -44,5 +44,9 @@ public class DataSender implements Runnable {
             instance = new DataSender();
         }
         return instance;
+    }
+
+    public long getInterval() {
+        return interval;
     }
 }

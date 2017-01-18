@@ -29,7 +29,24 @@ public class SseStreamController {
         return emitter;
     }
 
-    @RequestMapping(path = "/chat", method = RequestMethod.POST)
+	@RequestMapping(path = "/fall" method = RequestMethod.POST)
+	public Fall sendMessage(@RequestBody Fall fall) {
+		
+		log.info("Got fall info " + fall);
+		
+		emitters.forEach((SseEmitter emitter) -> {
+            try {
+                emitter.send(fall, MediaType.APPLICATION_JSON);
+            } catch (IOException e) {
+                emitter.complete();
+                emitters.remove(emitter);
+                e.printStackTrace();
+            }
+        });
+        return fall;
+	}
+	
+    @RequestMapping(path = "/heartbeat", method = RequestMethod.POST)
     public Heartbeat sendMessage(@RequestBody Heartbeat heartbeat) {
 
         log.info("Got heartbeat" + heartbeat);

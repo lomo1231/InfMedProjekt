@@ -27,7 +27,7 @@ public class POST {
     }
 
     public int postPulse(int pulse) {
-        messageToSend = "";
+        messageToSend = "{value=";
 
         return this.postMessage();
     }
@@ -44,6 +44,9 @@ public class POST {
         return this.postMessage();
     }
 
+        return "Fall{" +
+                "state=" + (state == true ? "true" : "false") +
+            ";message=\"" + message + "\"}";
     private int postMessage() {
         try {
             DataOutputStream out = new DataOutputStream(connection.getOutputStream());

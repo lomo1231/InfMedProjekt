@@ -5,21 +5,27 @@ import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.pulse.Pulse;
 import com.pulse.R;
 import com.pulse.dialogs.FallDetectedDialog;
 import com.pulse.services.DataSender;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener, FallDetectedDialog.FallDialogListener {
+public class MainActivity extends AppCompatActivity
+                          implements SensorEventListener, FallDetectedDialog.FallDialogListener,
+                                     Runnable {
 
     private float old_y;
     private long lastUpdate;
@@ -27,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private SensorManager sensorManager;
     private Sensor sensorAccelerometer;
+
+    private Handler pulseUpdateHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +51,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         lastUpdate = System.currentTimeMillis();
 
-        DataSender.getInstance().run();
+        new Thread(DataSender.getInstance()).run();
+
+        pulseUpdateHandler = new Handler();
+
+        this.run();
     }
 
     @Override
@@ -53,12 +65,32 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sensorManager.registerListener(this, sensorAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        //TODO stop all timers and threads running
+    }
+
+    private void updatePulse() {
+        TextView pulseTV = (TextView) findViewById(R.id.pulseTextView);
+
+        pulseTV.setText(String.valueOf(Pulse.getInstance().getPulse()));
+    }
+
     private void possibleFallDetected() {
         sensorManager.unregisterListener(this);
 
         FragmentManager fm = getFragmentManager();
         final DialogFragment fallDialog = new FallDetectedDialog();
         fallDialog.show(fm, "FallDialog");
+    }
+
+    @Override
+    public void run() {
+        updatePulse();
+
+        pulseUpdateHandler.postDelayed(this, DataSender.getInstance().getInterval());
     }
 
     @Override
@@ -85,6 +117,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         DataSender.getInstance().fallDetected();
         LinearLayout alarmLayout = (LinearLayout) findViewById(R.id.alertLayout);
         alarmLayout.setVisibility(LinearLayout.VISIBLE);
+
+        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.LinearLayout);
+        mainLayout.setBackgroundColor(Color.parseColor("#E75353"));
+
+        Button menuButton = (Button) findViewById(R.id.menuButton);
+        menuButton.setClickable(false);
     }
 
     public void cancelFallAlarm(View view) {
@@ -96,6 +134,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         System.out.println("Alarm canceled");
 
         DataSender.getInstance().cancelFallAlarm("temp");
+
+        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.LinearLayout);
+        mainLayout.setBackgroundColor(Color.parseColor("#ffffff"));
+
+        Button menuButton = (Button) findViewById(R.id.menuButton);
+        menuButton.setClickable(true);
     }
 
     @Override
