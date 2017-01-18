@@ -11,7 +11,7 @@
 ### Steps to run application (development)
 
 1. In /application/ run 'mvn spring-boot:run' to run Spring Boot live-reload
-2. In /application/frontend/ run 'npm install' , 'npm install ng-lightning' to run frontend live-reload (Angular CLI)
+2. In /application/frontend/ run 'npm install' , 'npm install ng-lightning', 'ng serve' to run frontend live-reload (Angular CLI)
 3. Access application at localhost:4200
 
 ======
