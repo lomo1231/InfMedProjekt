@@ -21,6 +21,10 @@ public class Pulse {
         return instance;
     }
 
+    public void appendMessage(String message) {
+        this.pulse = pulse;
+    }
+
     public int getPulse() {
         pulse++;
         return pulse;

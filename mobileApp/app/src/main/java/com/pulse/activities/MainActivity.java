@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.pulse.Pulse;
@@ -131,9 +132,8 @@ public class MainActivity extends AppCompatActivity
         LinearLayout alarmLayout = (LinearLayout) findViewById(R.id.alertLayout);
         alarmLayout.setVisibility(LinearLayout.INVISIBLE);
 
-        System.out.println("Alarm canceled");
-
-        DataSender.getInstance().cancelFallAlarm("temp");
+        EditText editText = (EditText) findViewById(R.id.cancelMessage);
+        DataSender.getInstance().cancelFallAlarm(editText.getText().toString());
 
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.LinearLayout);
         mainLayout.setBackgroundColor(Color.parseColor("#ffffff"));
