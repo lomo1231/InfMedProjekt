@@ -131,12 +131,9 @@
       <file leaf-file-name="Pulse.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pulse/Pulse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-              <folding>
-                <element signature="e#466#467#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1875,8 +1872,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/pulse/communication/BluetoothManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pulse/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pulse/activities/MenuActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pulse/Pulse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pulse/communication/Bluetooth.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pulse/Pulse.java" />
       </list>
     </option>
   </component>
@@ -2697,12 +2694,12 @@
       <workItem from="1484390043565" duration="8088000" />
       <workItem from="1484681957470" duration="33000" />
       <workItem from="1484738836681" duration="22809000" />
-      <workItem from="1484772320186" duration="3072000" />
+      <workItem from="1484772320186" duration="4532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53721000" />
+    <option name="totallyTimeSpent" value="55181000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -2891,10 +2888,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2983,10 +2977,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3221,12 +3212,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pulse/Pulse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-          <folding>
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
