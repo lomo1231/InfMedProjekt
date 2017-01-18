@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard.component';
-import { Temp1Component } from './temp1.component';
+import { Temp1Component } from './doctor.component';
 import { PatientComponent } from './patient.component';
 import { DataService } from './data.service';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import {NglModule} from 'ng-lightning/ng-lightning';
 
 @NgModule({
 
@@ -16,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    NglModule.forRoot()
    ],
 
   declarations: [

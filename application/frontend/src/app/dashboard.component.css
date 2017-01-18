@@ -29,7 +29,7 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #3F51B5;
+  background-color: lightcoral;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #00BCD4;
+  background-color: tomato;
 }
 .form .message {
   margin: 15px 0 0;

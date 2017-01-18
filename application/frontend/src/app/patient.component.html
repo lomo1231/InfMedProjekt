@@ -1,12 +1,38 @@
-<div class="row">
-    <div class="container">
-    <h4> hello pacjent</h4>
+<template #tip2><p style="font-size:12px;">Panel wyświetla aktualne informacje o stanie Twojego pulsu i pozycji.</p> </template>
 
-      <div *ngIf="heartbeat">
-        <h2>Puls</h2>
-        <p><b>Wartość:</b> {{heartbeat.value}}</p>
-      </div>
-</div>
+
+<div class="row">
+
+  <div class="container">
+    <span class="hello">Witamy, Panie {{Ja.fullname}}.</span>
+
+    <div class="info"> <button type="button" nglButton="neutral" [nglPopover]="tip2" nglPopoverTheme="info" [nglOpen]="openClick1" (click)="openClick1 = !openClick1">?</button></div>
+    <div class="title">Szczegółowe informacje:</div>
+    <div class="head">
+      {{Ja.fullname}}
+    </div>
+
+    <ul class="details">
+
+      <li>
+        <ngl-badge>Puls:</ngl-badge>
+        {{Ja.pulse}}
+
+        <ngl-badge *ngIf="Ja.pulse>120" type="error">!</ngl-badge>
+
+      </li>
+      <br/>
+      <li>
+        <ngl-badge>Stabilność:</ngl-badge>
+        <ngl-badge *ngIf="!Ja.accelerometer" type="success">Twoja pozycja - ok</ngl-badge>
+        <ngl-badge *ngIf="Ja.accelerometer" type="error">podnieś sie!</ngl-badge>
+      </li>
+
+    </ul>
+
+
+
+  </div>
 </div>
 
 

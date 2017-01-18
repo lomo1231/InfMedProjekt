@@ -4,3 +4,42 @@
   position: relative;
   left: 30px;
 }
+
+
+.hello {
+
+  font-size:12px;
+  font-style: italic;;
+  margin-bottom: 15px;
+}
+
+.footer{
+  clear: both;
+  margin: auto;
+
+}
+.title{
+  font-size: 20px;
+  margin-bottom:20px;
+}
+
+.name{
+  font-size: 14px;
+}
+
+.patient-list {
+  float: left;
+}
+
+.patient-detail {
+  float: left;
+  padding: 45px;
+  width: 55%;
+}
+.head{
+  margin-bottom:20px;
+  font-size: 20px;
+}
+.patient-detail li{
+  padding-bottom: 5px;
+}

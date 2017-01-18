@@ -1,0 +1,71 @@
+<div class="row">
+
+  <div class="slds-notify_container">
+    <ngl-notification *ngIf="showAlert" type="alert" severity="error"
+                      (nglNotificationClose)="onClose($event)" timeout="4000" class="slds-theme--alert-texture">
+      <h2>Uwaga! Wystąpiły problemy z pacjentem, sprawdź panel doktora!</h2>
+    </ngl-notification>
+  </div>
+
+  <div class="container">
+
+    <div class="hello">Witamy, doktorze Kowalski.</div>
+
+    <div class="patient-list">
+
+      <div class="title">Lista Pacjentów:</div>
+      <ul class="list-group">
+        <li *ngFor="let patient of patients" (click)="select(patient)" class="list-group-item">
+
+          <span>{{patient.fullname}}</span>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="patient-detail" *ngIf="selected">
+
+      <div align="right" style="float: right" id="patientPanelClose" (click)="select();">
+        <button type="button" class="btn btn-default" data-toggle="tooltip" title="Close">
+          <span style="font-size: 10pt; color: #990308">X</span>
+        </button>
+      </div>
+
+      <div class="title">Szczegółowe informacje:</div>
+      <div class="head">
+        {{selected.fullname}}
+      </div>
+
+      <ul class="details">
+
+      <li>
+        <ngl-badge>Puls:</ngl-badge>
+        {{selected.pulse}}
+
+          <ngl-badge *ngIf="selected.pulse>120" type="error">!</ngl-badge>
+
+      </li>
+
+      <li>
+        <ngl-badge>Stabilność:</ngl-badge>
+        <ngl-badge *ngIf="!selected.accelerometer" type="success">pozycja pacjenta - ok</ngl-badge>
+        <ngl-badge *ngIf="selected.accelerometer" type="error">pacjent się przewrócił!</ngl-badge>
+      </li>
+
+      </ul>
+    </div>
+
+
+
+
+
+    <div class="footer"></div>
+  </div>
+
+
+</div>
+
+<span (click)="show()" style="cursor:pointer;">pokaz alert</span>
+
+
+

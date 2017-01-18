@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent }   from './dashboard.component';
 import { PatientComponent }      from './patient.component';
-import { Temp1Component }  from './temp1.component';
+import { Temp1Component }  from './doctor.component';
 
 const routes: Routes = [
   { path: '',  component: DashboardComponent },

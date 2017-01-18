@@ -1,17 +1,5 @@
 
-
-.patient-list {
-  float: left;
- 
-}
-
-.patient-detail {
-  float: left;
-  padding: 45px;
-  
-}
-
-.container  {
+.container {
   background: #FFFFFF;
   max-width: 860px;
   margin: 0 auto 100px;
@@ -19,7 +7,11 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1), 0 5px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
-.footer{
-  clear: both;
-
+.list-group-item {
+  cursor: pointer;
 }
+
+.list-group-item:hover {
+  background-color: lightcoral;
+}
+
