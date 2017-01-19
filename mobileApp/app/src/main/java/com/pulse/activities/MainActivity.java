@@ -23,6 +23,7 @@ import com.pulse.Pulse;
 import com.pulse.R;
 import com.pulse.dialogs.FallDetectedDialog;
 import com.pulse.services.DataSender;
+import com.pulse.test.PulseMockData;
 
 public class MainActivity extends AppCompatActivity
                           implements SensorEventListener, FallDetectedDialog.FallDialogListener,
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity
     private Sensor sensorAccelerometer;
 
     private Handler pulseUpdateHandler;
+
+    private PulseMockData pulseMockData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity
         new Thread(DataSender.getInstance()).run();
 
         pulseUpdateHandler = new Handler();
+
+        pulseMockData = new PulseMockData();
 
         this.run();
     }
@@ -77,6 +82,8 @@ public class MainActivity extends AppCompatActivity
         TextView pulseTV = (TextView) findViewById(R.id.pulseTextView);
 
         pulseTV.setText(String.valueOf(Pulse.getInstance().getPulse()));
+
+        Pulse.getInstance().setPulse(pulseMockData.getPulse());
     }
 
     private void possibleFallDetected() {

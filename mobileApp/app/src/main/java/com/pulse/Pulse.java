@@ -18,7 +18,6 @@ public class Pulse {
 
     public static Pulse getInstance() {
         if(instance == null) {
-            System.out.println("Instance == null, object created.");
             instance = new Pulse();
         }
         return instance;
@@ -84,5 +83,9 @@ public class Pulse {
     public int getPulse() {
         pulse++;
         return pulse;
+    }
+
+    public void setPulse(int pulse) {
+        this.pulse = pulse;
     }
 }

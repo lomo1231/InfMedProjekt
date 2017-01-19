@@ -18,8 +18,6 @@ public class DataSender implements Runnable {
 
     @Override
     public void run() {
-        //TODO usunac print
-        //System.out.println(poster.postPulse(pulseStorage.getPulse()));
         poster.postPulse(pulseStorage.getPulse());
         handler.postDelayed(this, interval);
     }

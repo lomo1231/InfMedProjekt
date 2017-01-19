@@ -29,7 +29,7 @@ public class SseStreamController {
         return emitter;
     }
 
-	@RequestMapping(path = "/fall" method = RequestMethod.POST)
+	@RequestMapping(path = "/fall", method = RequestMethod.POST)
 	public Fall sendMessage(@RequestBody Fall fall) {
 		
 		log.info("Got fall info " + fall);
