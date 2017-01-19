@@ -1,6 +1,12 @@
 <template #tip2><p style="font-size:12px;">Panel wyświetla aktualne informacje o stanie Twojego pulsu i pozycji.</p>
 </template>
 
+<div class="slds-notify_container">
+  <ngl-notification *ngIf="showAlert" type="alert" severity="error"
+                    (nglNotificationClose)="onClose($event)" timeout="4000" class="slds-theme--alert-texture">
+    <h2>Upadłeś</h2>
+  </ngl-notification>
+</div>
 
 <div class="row">
 

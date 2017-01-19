@@ -30,6 +30,8 @@ export class PatientComponent implements OnInit {
   ngOnInit() {
     console.log("onInit");
     this.getHeartbeat();
+    this.getFall();
+    this.showAlert =false;
   }
 
    updateHeartbeat = (msg:any) => {
@@ -46,6 +48,17 @@ export class PatientComponent implements OnInit {
     this.source.addEventListener('message', this.updateHeartbeat, false);
   }
 
+  getFall() {
+    this.source = new EventSource('http://localhost:8080/stream2');
+    console.log('getFall()');
+    this.source.addEventListener('message', this.updateAlert, false);
+  }
+
+  updateAlert = (msg:any) => {
+    console.log(msg);
+     this.showAlert = true
+  };
+
 //-------pop up z info---------
 
   placement: string;
@@ -55,6 +68,19 @@ export class PatientComponent implements OnInit {
   change(placement: string) {
     this.open = true;
     this.placement = placement;
+  }
+
+
+  //-----notifications----------
+  showAlert = false;
+
+  show() {
+    this.showAlert = true;
+  }
+
+  onClose(reason: string) {
+    console.log(`Alert closed by ${reason}`);
+    this.showAlert = false;
   }
 
 }
