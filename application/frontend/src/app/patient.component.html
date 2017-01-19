@@ -1,4 +1,5 @@
-<template #tip2><p style="font-size:12px;">Panel wyświetla aktualne informacje o stanie Twojego pulsu i pozycji.</p> </template>
+<template #tip2><p style="font-size:12px;">Panel wyświetla aktualne informacje o stanie Twojego pulsu i pozycji.</p>
+</template>
 
 
 <div class="row">
@@ -6,7 +7,11 @@
   <div class="container">
     <span class="hello">Witamy, Panie {{Ja.fullname}}.</span>
 
-    <div class="info"> <button type="button" nglButton="neutral" [nglPopover]="tip2" nglPopoverTheme="info" [nglOpen]="openClick1" (click)="openClick1 = !openClick1">?</button></div>
+    <div class="info">
+      <button type="button" nglButton="neutral" [nglPopover]="tip2" nglPopoverTheme="info" [nglOpen]="openClick1"
+              (click)="openClick1 = !openClick1">?
+      </button>
+    </div>
     <div class="title">Szczegółowe informacje:</div>
     <div class="head">
       {{Ja.fullname}}
@@ -15,9 +20,11 @@
     <ul class="details">
 
       <li>
-        <ngl-badge>Puls:</ngl-badge>
-        {{Ja.pulse}}
-
+        <!--<ngl-badge>Puls:</ngl-badge>-->
+        <!--{{Ja.pulse}}-->
+        <div *ngIf="heartbeat">
+          <ngl-badge>Puls: {{heartbeat.value}}</ngl-badge>
+        </div>
         <ngl-badge *ngIf="Ja.pulse>120" type="error">!</ngl-badge>
 
       </li>
@@ -29,7 +36,6 @@
       </li>
 
     </ul>
-
 
 
   </div>

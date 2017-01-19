@@ -3,7 +3,7 @@
 // -------------------------------------------------------------------------------
 
 
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Deserialize} from "cerialize";
 import {Heartbeat} from "./heartbeat";
@@ -15,7 +15,7 @@ declare var EventSource: any;
   templateUrl: './patient.component.html',
   styleUrls: ['./patient.component.css']
 })
-export class PatientComponent {
+export class PatientComponent implements OnInit {
   source: any;
   heartbeat: Heartbeat;
 
@@ -27,8 +27,7 @@ export class PatientComponent {
 
   Ja: Patient = {id: 1, fullname: 'Jakub Lubas', pulse: 75, accelerometer: false};
 
-
-  /**ngOnInit() {
+  ngOnInit() {
     console.log("onInit");
     this.getHeartbeat();
   }
@@ -46,7 +45,7 @@ export class PatientComponent {
     console.log('getHeartbeat()');
     this.source.addEventListener('message', this.updateHeartbeat, false);
   }
-   **/
+
 //-------pop up z info---------
 
   placement: string;
