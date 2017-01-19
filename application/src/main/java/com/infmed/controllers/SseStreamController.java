@@ -1,5 +1,6 @@
 package com.infmed.controllers;
 
+import com.infmed.models.Fall;
 import com.infmed.models.Heartbeat;
 import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
